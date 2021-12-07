@@ -6,6 +6,7 @@ if [[ -z $containers ]]
 then
 	echo "No containers found"
 else
-	docker rm -f $containers\
+	docker container stop $containers\
+		&& docker container prune\
 		&& echo "Killed all containers."
 fi
