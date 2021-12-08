@@ -1,5 +1,5 @@
 #include <cstdio>
-//	 ^^^^^^^^ this is the ONLY C++ code in this application! The rest is C (except for the std namespace)
+//	 ^^^^^^^^ this is the ONLY C++ code in this application(the brackets specifically)! The rest is C.
 
 // Here are some limitations of floats, double floats, and other data types!
 
