@@ -3,12 +3,11 @@
 #include <cassert>
 
 /* Hey, look at this nifty C++! We're really taking advantage of the language now!
- * I'm opting to take advantage of templating here. This is just a forward declaration here.
  * I use templating so we can use any type of array we want.
  */
 
 // PARAMS:
-// 	const T arr[]		: Array of objects to vectorize
+// 	const T &arr[N]		: Array of values to vectorize
 // So this is a pretty complicated function.
 // 	I pretty much know the fastest way to instantiate a vector from memory is to use some variation of iterable (which is NOT my strong suit)
 // 	This also really takes advantage of some advanced, advanced concepts of C++. I even made sure to define the C++17 standard in the makefile here
