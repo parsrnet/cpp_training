@@ -1,15 +1,15 @@
 # Day 3 Assignments
 
 ## Assignment 1: Arrays and Vectors
-Please take a look at my code in [AssignArraysAndVectors](https://github.com/manoj-smoothstack/cpp_training/tree/main/Week1/Day3/AssignArraysAndVectors/) and its annotations.
+Please take a look at my code in [AssignArraysAndVectors](https://github.com/parsrnet/cpp_training/tree/main/Week1/Day3/AssignArraysAndVectors) and its annotations.
 
 ## Assignment 2: Mixed Arrays
 ### 2.1 and 2.2
-Please take a look at my code in [AssignMixedArrays](https://github.com/manoj-smoothstack/cpp_training/tree/main/Week1/Day3/AssignMixedArrays/) and its annotations
+Please take a look at my code in [AssignMixedArrays](https://github.com/parsrnet/cpp_training/tree/main/Week1/Day3/AssignMixedArrays) and its annotations
 
 ## Assignment 3: Array vs Vector
 I would use an std::vector over an array whenever the size of a collection is ambiguous, I want to be able to index memory that may or may not be within the bounds of an array, or when I want to easily insert or append to a collection.
-Here is an example program I generated where the user is polled for data and that data is inserted into a vector: [AssignArrayVsVector](https://github.com/manoj-smoothstack/cpp_training/tree/main/Week1/Day3/AssignArrayVsVector)
+Here is an example program I generated where the user is polled for data and that data is inserted into a vector: [AssignArrayVsVector](https://github.com/parsrnet/cpp_training/tree/main/Week1/Day3/AssignArrayVsVector)
 User generated data is often unformatted and of indefinite size which makes it a great example of when to use std::vector! However, if memory management or speed is of utmost importance to you - use an array or generate your own type of vector because we can't guarantee vectors will use memory 100% efficiently (they allocate more than they use) and will be index quickly (the `.at()` member function, though safe, isn't as fast as indexing an array).
 
 ## Assignment 4: Vector Performance
