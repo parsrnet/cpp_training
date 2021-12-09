@@ -19,7 +19,7 @@
 // TYPES //
 /* Types that I use inside the program: */
 typedef unsigned char uchar; // Shorthand 'unsigned char' (which is a byte)
-typedef std::map<const std::string, ulong> typesizemap_t; // Shorthand for our map so we don't have to write out the template every time
+typedef std::map<const std::string, unsigned long> typesizemap_t; // Shorthand for our map so we don't have to write out the template every time
 
 /* You'll find the following types all allocate the same size of char (1B)
  * 	I'll elaborate on more detail some of the understanding I have on these types in the 2nd code Assignment 
