@@ -9,25 +9,27 @@
 
 // PARAMS:
 // 	const T arr[]		: Array of objects to vectorize
-// 	const size_t& len	: Length of input array
-template<typename T>
-std::vector<T> arrToVec(const T arr[], const size_t& len);
-
-
-// This constexpr function evaluates an array of type T to return its size.
-// We NEED to use constexpr so that the compiler can evaluate this function on compile time rather than only at runtime.
-// There's a lot going on here that isn't at all immediately apparent,
-// 	so in an enterprise setting, I might avoid it but the function name really does give it away.
-// That being said, this is a beautiful expression. It takes advantage of some really niche concepts, and even the constrexpr keyword
-//	which we covered very briefly already.
-
-template<typename T, size_t N> // template<typename T, size_t N> : Basically, accept a type T (and implicitly its size N)
-constexpr size_t arr_len(const T (&)[N]) { return N; } // const T (&)[N] : Unnamed array reference of Type T sizeof N: return size N
+// So this is a pretty complicated function.
+// 	I pretty much know the fastest way to instantiate a vector from memory is to use some variation of iterable (which is NOT my strong suit)
+// 	This also really takes advantage of some advanced, advanced concepts of C++. I even made sure to define the C++17 standard in the makefile here
+// 		because I wasn't too sure this was allowed in anything but C++20 (it is okay, compiles fine!)
+// Pretty much we take advantage of templates and constexpr to create a modular way to convert arrays to vectors which is workable at compile-time and runtime.
+//	It's good to note that template<typename T, size_t N> is a predefined template where T some type of array and N is the size of that array (as arguments passed to the function)
+//	We can then use (T (&arr)[N]) as a reference to the array arr of type T and length N. Highly important to note that declaring the array size N is NOT OPTIONAL.
+//	Because the size must be definite, the compiler will spit out errors about how arr(*)([]) and arr[3] are different types if we don't declare the array with size [N]
+//	Pretty nifty, huh?
+template<typename T, size_t N>
+constexpr std::vector<T> arrToVec(T (&arr)[N])
+{
+	std::vector<T> vect = std::vector<T>();
+	vect.insert(vect.begin(), std::begin(arr), std::end(arr));
+	return vect;
+}
 
 int main(void)
 {
 	int iArr[] { 1, 2, 3 };
-	std::vector<int> iVec = arrToVec(iArr, 3);
+	std::vector<int> iVec = arrToVec<int>(iArr);
 
 
 	for(auto i : iVec)
@@ -36,7 +38,7 @@ int main(void)
 	std::cout << std::endl;
 
 	const char* cStrArr[] { "Hello", ",", "world", "!" };
-	std::vector<const char*> cStrVec = arrToVec(cStrArr, arr_len<const char*>(cStrArr));
+	std::vector<const char*> cStrVec = arrToVec<const char*>(cStrArr);
 	
 	std::cout << "LENGTH: " << cStrVec.size() << std::endl;
 	for(auto cstr : cStrVec)
@@ -48,12 +50,3 @@ int main(void)
 	return 0;
 }
 
-template<typename T>
-std::vector<T> arrToVec(const T arr[], const size_t& len)
-{
-	std::vector<T> vect = std::vector<T>();
-	for (int i=0; i < len; i++)
-		vect.push_back(arr[i]);
-
-	return vect;
-}
