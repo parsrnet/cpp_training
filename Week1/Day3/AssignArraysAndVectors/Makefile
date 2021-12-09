@@ -1,8 +1,8 @@
 CXX=clang++
 
-mixed-arrays: mixed-arrays.cpp
+arrays-and-vectors: arrays-and-vectors.cpp
 
 .PHONY: clean
 
 clean:
-	rm -f mixed-arrays 
+	rm -f arrays-and-vectors	
