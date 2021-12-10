@@ -9,7 +9,7 @@ ___
 float x = 3.1;
 assert(x == 3.1);
 ```
-This will _NOT_ pass. Setting x = 3.1 literal will implicitly convert the double 3.1 to a float. When we compare them, we are comparing the float to a double which will lead to precision errors. We can instead write `double x = 3.1` OR `float x = 3.1f; assert(x == 3.1f);` to make this pass.
+This will _NOT_ pass. When we compare x to 3.1, we are comparing the float value of x to a double literal value of 3.1 which will lead to precision errors. We can instead write `double x = 3.1` OR `float x = 3.1f; assert(x == 3.1f);` to make this pass.
 ___
 `assert(3.1 == 3.1);`
 
