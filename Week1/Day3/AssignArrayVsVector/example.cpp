@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-#define MAX_INPUT_LENGTH 512
-
 int main(void)
 {
 	/* Here's a great example of when we should use a vector as opposed to an array! */
