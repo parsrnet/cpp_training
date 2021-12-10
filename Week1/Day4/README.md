@@ -3,7 +3,7 @@
 ## 1. Arithmetic Expressions:
 `assert(3 == 3.0)`
 
-This will pass! The integer on the right side is implicitly converted into a single floating point and that just so happens to be the equivalent of 3.0.
+This will pass! The integer on the right side is implicitly converted into a double floating point and that just so happens to be the equivalent of 3.0.
 ___
 ```
 float x = 3.1;
