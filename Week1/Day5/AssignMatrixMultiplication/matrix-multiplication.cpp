@@ -66,8 +66,12 @@ int main(void)
 	//Matrix m1(arr3);
 	//Matrix d = Matrix::dot_product(a,m1); // Assert fails, matrix a's rows not equal to matrix m1's cols.
 	
+	std::cout << "\n\n\n\n\n\n"; // Just flushing the buffer a bit...
+
 	Matrix d(arr3);
+	d.print();
 	Matrix e(arr4);
+	e.print();
 	Matrix dot_de = Matrix::dot_product(d,e);
 
 	dot_de.print();
