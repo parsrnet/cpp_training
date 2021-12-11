@@ -44,23 +44,23 @@ public:
 	
 	/* A<N1,M1>(this) * B<N2,M2>(matrix2) = C<N1,M2> : Returns value of matrix C */
 	template<size_t Rows2, size_t Cols2>
-	Matrix<Rows,Cols2> dot_product(Matrix<Rows2,Cols2> matrix2)
+	Matrix<Rows,Cols2, T> dot_product(Matrix<Rows2,Cols2,T> matrix2)
 	{
 		assert(Rows == Cols2); // For the dot product, # Matrix 1 rows MUST equal # Matrix 2 cols
 
-		int dotProduct[Rows][Cols2];
+		T dotProduct[Rows][Cols2];
 		for (unsigned row = 0; row < Rows; row++) // For every row of the lhs Matrix
 		{
 			for (unsigned col = 0; col < Cols2; col++) // For every column of the rhs Matrix
 			{
-				int product = 0;
+				T product = 0;
 				for (unsigned i = 0; i < Cols; i++) // And finally, for every column of the current row...
 					product += at(row, i) * matrix2.at(i, col);
 				dotProduct[row][col] = product;
 			}
 		}
 
-		Matrix<Rows,Cols2> m(dotProduct);
+		Matrix<Rows,Cols2,T> m(dotProduct);
 		return m;
 	}
 };

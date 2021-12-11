@@ -75,5 +75,17 @@ int main(void)
 	Matrix dot_de = d.dot_product(e);
 
 	dot_de.print();
+
+	int arrA[3][3] = { {1,2,3}, {4,5,6}, {7,8,9} };
+	int arrB[3][3];
+	memcpy(&arrB, &arrA, sizeof(int) * 3 * 3);
+	Matrix matA(arrA);
+	Matrix matB(arrB);
+	matA.print();
+	matB.print();
+	
+	Matrix dotAB = matA.dot_product(matB);
+	dotAB.print();
+
 	return 0;
 }
