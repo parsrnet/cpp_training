@@ -248,8 +248,7 @@ view_result_et view_search_name(const AccountList& accounts)
 			
 			// Get line number and corresponding account
 			prompt_result_et lineNumberRes;
-			int lineNumber;
-			promptInt("select number >", lineNumberRes);
+			int lineNumber = promptInt("select number >", lineNumberRes);
 			
 			if (lineNumberRes != PROMPT_RESULT_OK) // If the prompt failed (user entered in nan)
 			{
