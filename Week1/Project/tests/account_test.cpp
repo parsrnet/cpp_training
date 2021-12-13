@@ -2,6 +2,37 @@
 
 #include "../account.h"
 
+class AccountTest : public ::testing::Test
+{
+protected:
+	void SetUp() override
+	{
+		accounts.add_account("Joshua Willis", "111-22-3333");
+		accounts.add_account("Manoj Joshi", "333-11-4444");
+	}
+
+	AccountList accounts;
+};
+
+TEST_F(AccountTest, TestCorrectInitHolderName)
+{
+	EXPECT_EQ(accounts.at(0)->getHolderName(), "Joshua Willis");
+	EXPECT_EQ(accounts.at(1)->getHolderName(), "Manoj Joshi");
+}
+
+TEST_F(AccountTest, TestCorrectInitID)
+{
+	EXPECT_EQ(accounts.at(0)->getID(), 1);
+	EXPECT_EQ(accounts.at(1)->getID(), 2);
+}
+
+TEST_F(AccountTest, TestCorrectSSNLastFour)
+{
+	EXPECT_EQ(accounts.at(0)->getSSNLastFour(), "***-**-3333");
+	EXPECT_EQ(accounts.at(1)->getSSNLastFour(), "***-**-4444");
+}
+
+
 class AccountListTest : public ::testing::Test
 {
 protected:
