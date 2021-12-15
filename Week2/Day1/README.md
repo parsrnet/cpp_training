@@ -12,4 +12,8 @@ View my code [here](https://github.com/parsrnet/cpp_training/tree/main/Week2/Day
 ### Run the program
 This program will run the methods as defined in the implementation. You can see that we use const overloading to produce a different result based on if we are calling to a const-defined struct or non-const.
 
-## Assignment 3: 
+## Assignment 3: Is Power of Two
+View my code [here](https://github.com/parsrnet/cpp_training/tree/main/Week2/Day1/AssignIsPowerOf2)
+### Run make
+### Run the program
+This program will take user input and output if it is a power of two or not. Asserts 'false' causing the program to quit on incorrect input format (as opposed to input validation). Uses no arithmetic symbols (unless if you count '<<' as an arithmetic symbol)
