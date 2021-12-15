@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 // No arithmetic operators (except for +=)
 // No math library
@@ -21,6 +22,11 @@ int main(void)
 	{
 		std::cout << "enter a number >";
 		std::cin >> i;
+		if (std::cin.fail())
+		{
+			std::cout << "INPUT MUST BE A VALID INTEGER NUMBER" << std::endl;
+			assert(false);
+		}
 		std::cout << i << (isPowerOf2(i) ? " is a power of 2" : " is not a power of 2") << std::endl;
 	}
 	return 0;
